@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchForm from '../../components/SearchForm';
 
 function HomePage() {
   return (
@@ -9,6 +10,7 @@ function HomePage() {
         this time. If you attempt such search you will be told that the user
         does not exist.
       </p>
+      <SearchForm />
     </article>
   );
 }
