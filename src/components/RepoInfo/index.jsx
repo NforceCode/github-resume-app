@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { getUserRepos } from '../../api';
+import UsedLangSection from '../UsedLangSection';
 import RepoList from '../RepoList';
 
 function RepoInfo({ user }) {
@@ -26,6 +27,7 @@ function RepoInfo({ user }) {
   return (
     <section>
       <h3>Data about public repos</h3>
+      <UsedLangSection user={user} />
       {error ? (
         <p>unable to load public repos</p>
       ) : (
