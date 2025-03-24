@@ -1,10 +1,7 @@
-.container {
-  max-width: 1440px;
-  margin: 0 auto;
-}
+@use '../styles/mixins';
 
-.header, .main, .footer {
-  padding: 20px;
+.container {
+  @include mixins.container();
 }
 
 .header, .footer {
@@ -39,6 +36,7 @@
   flex-grow: 1;
   background-color: #3c3c3c;
   color: white;
+  padding: 20px;
 }
 
 .footer {
