@@ -1,28 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { getUserRepos } from '../../api';
 import RepoList from '../RepoList';
 import styles from './style.module.scss';
+import { useLoadData } from '../../hooks';
 
 function PublicRepoSection({ user }) {
-  const [repos, setRepos] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    setIsLoading(true);
-
-    getUserRepos(user.login)
-      .then(({ data: repos }) => {
-        setRepos(repos);
-        setError(null);
-      })
-      .catch(({ response: { data: error } }) => {
-        setError(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [user]);
+  const {
+    data: repos,
+    isLoading,
+    error,
+  } = useLoadData(() => getUserRepos(user.login));
 
   return (
     <section className={styles.container}>

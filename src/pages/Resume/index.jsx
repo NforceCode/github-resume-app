@@ -1,30 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useParams } from 'react-router';
 import Resume from '../../components/Resume';
 import { getUser } from '../../api';
 import styles from './style.module.scss';
+import { useLoadData } from '../../hooks';
 
 function ResumePage() {
   const { username } = useParams();
 
-  const [user, setUser] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    setIsLoading(true);
-
-    getUser(username)
-      .then(({ data: user }) => {
-        setUser(user);
-      })
-      .catch(({ response: { data: error } }) => {
-        setError(error);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  }, [username]);
+  const { data: user, isLoading, error } = useLoadData(() => getUser(username));
 
   const userNotFound = !user && !isLoading && error;
 
