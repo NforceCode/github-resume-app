@@ -1,0 +1,22 @@
+.repoItem {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &Name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: dodgerblue;
+  }
+  
+}
+
+.repoNameContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}

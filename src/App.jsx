@@ -3,7 +3,7 @@ import BasicLayout from './layout';
 import HomePage from './pages/Home';
 import ResumePage from './pages/Resume';
 import './reset.css';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (

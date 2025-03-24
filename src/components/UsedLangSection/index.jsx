@@ -4,6 +4,7 @@ import {
   reduceRepoLanguages,
 } from '../../utils/repoUtils';
 import { getPublicReposLanguages } from '../../api';
+import styles from './style.module.scss';
 
 function UsedLangSection({ user }) {
   const [languagePercentages, setLanguagePercentages] = useState({});
@@ -31,19 +32,19 @@ function UsedLangSection({ user }) {
   const percentagesEntries = Object.entries(languagePercentages);
 
   return (
-    <section>
-      <h4>Language usage in repos</h4>
+    <section className={styles.container}>
+      <h4 className={styles.subheading}>Language usage in repos</h4>
       {isLoading && <p>Loading...</p>}
       {percentagesEntries.length > 0 && (
-        <ul>
+        <ul className={styles.langList}>
           {percentagesEntries.map(([lang, percentage]) => (
-            <li key={lang}>
+            <li key={lang} className={styles.langListItem}>
               {lang}: {percentage}%
             </li>
           ))}
         </ul>
       )}
-      {error && <p>Cant display language usage at the moment</p>}
+      {error && <p className={styles.errorMessage}>Cant display language usage at the moment</p>}
     </section>
   );
 }

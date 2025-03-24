@@ -1,0 +1,39 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.33rem;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: space-between;
+  
+  
+  &Text {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}
+
+.input {
+  flex: 1;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.submitBtn {
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #5d5d5d;
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+
+  &:hover, &:focus {
+    background-color: #3d3d3d;
+  }
+}

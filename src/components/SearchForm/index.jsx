@@ -1,6 +1,7 @@
 import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import { useNavigate } from 'react-router';
+import styles from './style.module.scss';
 
 const initialValues = {
   username: '',
@@ -15,12 +16,18 @@ function SearchForm() {
 
   return (
     <Formik initialValues={initialValues} onSubmit={handleSubmit}>
-      <Form>
-        <label>
-          <span>Enter Github username to search</span>
-          <Field name="username" autoComplete="username" />
+      <Form className={styles.form}>
+        <label className={styles.label}>
+          <span className={styles.labelText}>
+            Enter Github username to search
+          </span>
+          <Field
+            name="username"
+            autoComplete="username"
+            className={styles.input}
+          />
         </label>
-        <button type="submit">Find user</button>
+        <button type="submit" className={styles.submitBtn}>Find user</button>
       </Form>
     </Formik>
   );

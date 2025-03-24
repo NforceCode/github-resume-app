@@ -1,0 +1,39 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.33rem;
+}
+
+.userInfo {
+  display: flex;
+  gap: 1.33rem;
+  flex-direction: column;
+  align-items: center;
+
+  &Data {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-self: stretch;
+  }
+
+  &Pic {
+    --size: 100px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    align-self: center;
+  }
+}
+
+.userName {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.additionalInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

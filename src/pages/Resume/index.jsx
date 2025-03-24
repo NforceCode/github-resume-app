@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import Resume from '../../components/Resume';
 import { getUser } from '../../api';
+import styles from './style.module.scss';
 
 function ResumePage() {
   const { username } = useParams();
@@ -28,13 +29,17 @@ function ResumePage() {
   const userNotFound = !user && !isLoading && error;
 
   return (
-    <article>
-      <h2>Resume</h2>
+    <article className={styles.container}>
+      <h2 className={styles.heading}>Resume</h2>
       <p>
         On this page you will see short information about the user you searched.
       </p>
       {user && <Resume user={user} />}
-      {userNotFound && <p>No user with such username was found.</p>}
+      {userNotFound && (
+        <p className={styles.errorMessage}>
+          No user with such username was found.
+        </p>
+      )}
     </article>
   );
 }

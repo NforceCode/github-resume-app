@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { getUserRepos } from '../../api';
 import UsedLangSection from '../UsedLangSection';
 import RepoList from '../RepoList';
+import styles from './style.module.scss';
 
 function RepoInfo({ user }) {
   const [repos, setRepos] = React.useState([]);
@@ -25,14 +26,14 @@ function RepoInfo({ user }) {
   }, [user]);
 
   return (
-    <section>
-      <h3>Data about public repos</h3>
+    <section className={styles.container}>
+      <h3 className={styles.heading}>Data about public repos</h3>
       <UsedLangSection user={user} />
       {error ? (
-        <p>unable to load public repos</p>
+        <p className={styles.errorMessage}>unable to load public repos</p>
       ) : (
-        <section>
-          <h4>Last edited repos</h4>
+        <section className={styles.container}>
+          <h4 className={styles.subheading}>Last edited repos</h4>
           {repos && !isLoading && <RepoList repos={repos} />}
         </section>
       )}

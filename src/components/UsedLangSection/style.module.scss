@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.subheading {
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.langList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 1rem;
+}
+
+.langListItem {
+  flex: 1 1 250px;
+  text-align: center;
+}
+
+.errorMessage {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: red;
+}
