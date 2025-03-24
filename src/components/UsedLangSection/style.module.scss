@@ -1,3 +1,5 @@
+@use '../../styles/templates';
+
 .container {
   display: flex;
   flex-direction: column;
@@ -24,8 +26,5 @@
 }
 
 .errorMessage {
-  text-align: center;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: red;
+  @extend %errorMessage;
 }
